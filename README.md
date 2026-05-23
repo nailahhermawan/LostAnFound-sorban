@@ -1,16 +1,96 @@
-# Stellar Notes DApp
+# 🎓 IPB Campus Lost & Found Registry
 
-**Stellar Notes DApp** - Blockchain-Based Decentralized Note-Taking System
+> Sistem pelaporan barang hilang dan temuan berbasis blockchain untuk kampus IPB University, dibangun menggunakan Soroban Smart Contract di jaringan Stellar.
 
-## Project Description
+---
 
-Stellar Notes DApp is a decentralized smart contract solution built on the Stellar blockchain using Soroban SDK. It provides a secure, immutable platform for managing personal notes directly on the blockchain. The contract ensures that your data is stored transparently and is only manageable through predefined smart contract functions, eliminating reliance on centralized database providers.
+## 📖 Deskripsi Projek
 
-The system allows users to create, view, and delete notes, leveraging the efficiency and security of the Stellar network. Each note is uniquely identified and stored within the contract's instance storage, ensuring data persistence and reliability.
+IPB Campus Lost & Found Registry adalah dApp (decentralized application) yang memungkinkan mahasiswa IPB melaporkan barang hilang maupun barang temuan secara transparan dan permanen di atas blockchain Stellar. Tidak ada data yang bisa dimanipulasi — setiap laporan tercatat on-chain dan bisa diverifikasi siapapun.
 
-## Project Vision
+---
 
-Our vision is to revolutionize personal productivity in the digital age by:
+## 🔭 Visi Projek
+
+Mewujudkan sistem Lost & Found kampus yang transparan, anti-manipulasi, dan mudah diakses seluruh civitas akademika IPB — menggantikan sistem manual berbasis grup chat atau mading yang tidak terstruktur dengan solusi Web3 yang modern dan terdesentralisasi.
+
+---
+
+## ✨ Fitur
+
+| Fitur | Deskripsi |
+|---|---|
+| 📋 Lapor Barang Hilang | Buat laporan kehilangan barang beserta deskripsi dan lokasi di kampus IPB |
+| 🔍 Lapor Barang Temuan | Mahasiswa yang menemukan barang bisa membuat laporan penemuan |
+| 📍 Filter Lokasi Kampus | Lokasi spesifik IPB Dramaga (Fasilkom, Faperta, Fateta, Perpustakaan, Asrama, Kantin, dll) |
+| 🔄 Update Status | Status laporan bisa diperbarui: `Open` → `Claimed` → `Resolved` |
+| 🗑️ Hapus Laporan | Laporan yang sudah tidak relevan atau sudah selesai bisa dihapus |
+| 🔎 Cari by ID | Ambil detail laporan spesifik berdasarkan ID unik |
+
+---
+
+## 🔗 Deployed Smart Contract
+
+| | |
+|---|---|
+| **Network** | Stellar Testnet (Soroban) |
+| **Contract ID** | `CCQ5WINSWNCPYNIEYBG06HMYS74KDXXGSXZZ57GYFCQ6FF43UN7E4Y26` |
+| **Explorer** | [Lihat di Stellar Expert](https://stellar.expert/explorer/testnet/contract/CCQ5WINSWNCPYNIEYBG06HMYS74KDXXGSXZZ57GYFCQ6FF43UN7E4Y26) |
+
+---
+
+## 🛠️ Tech Stack
+
+- **Smart Contract** — Rust + Soroban SDK
+- **Blockchain** — Stellar Network (Testnet)
+- **IDE** — [Soroban Studio](https://soroban.studio)
+
+---
+
+## 📂 Struktur Kontrak
+
+```
+src/
+├── lib.rs       # Contract utama (CRUD Lost & Found)
+└── test.rs      # Unit tests (12 test cases)
+```
+
+### Functions
+
+| Function | Tipe | Deskripsi |
+|---|---|---|
+| `create_item` | Write | Buat laporan baru (Lost/Found) |
+| `get_all_items` | Read | Ambil semua laporan |
+| `get_item_by_id` | Read | Ambil laporan berdasarkan ID |
+| `update_status` | Write | Update status laporan |
+| `delete_item` | Write | Hapus laporan |
+
+---
+
+## 🧪 Testing
+
+Tersedia 12 unit test yang mencakup semua operasi CRUD:
+
+```
+✅ test_create_lost_item
+✅ test_create_found_item
+✅ test_create_multiple_items
+✅ test_get_all_items_empty
+✅ test_get_item_by_id_found
+✅ test_get_item_by_id_not_found
+✅ test_update_status_to_claimed
+✅ test_update_status_to_resolved
+✅ test_update_status_item_not_found
+✅ test_delete_item
+✅ test_delete_item_not_found
+✅ test_delete_one_of_many
+```
+
+---
+
+## 📄 License
+
+MITtal age by:
 
 - **Decentralizing Data**: Moving note-taking from centralized servers to a global, distributed blockchain
 - **Ensuring Ownership**: Empowering users to have complete control and ownership over their digital thoughts and information
